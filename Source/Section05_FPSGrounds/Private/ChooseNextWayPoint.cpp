@@ -7,16 +7,13 @@
 #include "PatrolComponent.h"
 
 EBTNodeResult::Type UChooseNextWayPoint::ExecuteTask(UBehaviorTreeComponent& Owner, uint8* node) {
-
-
-
 	//GetPatrolPoints
 	auto AIcontrol = Owner.GetAIOwner();			//Get our AI owner
 	auto Pawn = AIcontrol->GetPawn();				//Get its pawn
-	auto Patrol = Pawn->FindComponentByClass<UPatrolComponent>();	//cast pawn to guard
-	if (!ensure(Patrol)) { return EBTNodeResult::Failed; }
+	auto Patrol = Pawn->FindComponentByClass<UPatrolComponent>();	//cast pawn to patrol component
 
-	auto PatrolPoints = Patrol->GetPatrolPoints();		//get guard's patrol points
+	if (!ensure(Patrol)) { return EBTNodeResult::Failed; } //make sure we have a patrol component
+	auto PatrolPoints = Patrol->GetPatrolPoints();		//get waypoint array from patrol component
 
 	//SetNextWaypoint
 	auto BlackboardComponent = Owner.GetBlackboardComponent();								//Get blackboard

@@ -2,7 +2,7 @@
 
 #include "Section05_FPSGroundsGameMode.h"
 #include "Section05_FPSGroundsHUD.h"
-#include "Section05_FPSGroundsCharacter.h"
+#include "Player/FirstPersonCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 ASection05_FPSGroundsGameMode::ASection05_FPSGroundsGameMode()

@@ -23,6 +23,7 @@ public:
 	AGun();
 
 	/** fire the projectile*/
+	UFUNCTION(BlueprintCallable, Category = "GunFire")
 	void Fire();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	class UAnimInstance* AnimInstance;
